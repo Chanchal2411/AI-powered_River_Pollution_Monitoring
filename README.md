@@ -80,9 +80,9 @@ This project is suitable for:
 ## 📫 Contact
 
 **Chanchal Vishwakarma**  
-📧 [Your Email]  
-🔗 [LinkedIn Profile]  
-📁 Portfolio: [Add Link if any]
+📧 [chanchalvish2411@gmail.com]  
+🔗 [https://linkedin.com/in/chanchalvish-a01858269]  
+📁 Portfolio: [https://chanchal2411.github.io/html-css-js-portfolio]
 
 ---
 
