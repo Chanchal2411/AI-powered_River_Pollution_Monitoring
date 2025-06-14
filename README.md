@@ -1,170 +1,106 @@
-# AI-Powered River Pollution Monitoring System
+# 🌊 AI-Powered River Pollution Monitoring System
 
->  Built with Python · ML · Visual Analytics · Real Data from Ganga, Sangam & Yamuna
+A machine learning-based system to analyze and classify river water pollution levels using real-world datasets from Indian rivers. This project enables early detection of pollution, supports environmental management, and can be extended for real-time monitoring using IoT and satellite data streams.
 
----
-
-###  Problem Statement
-
-Rivers are lifelines for agriculture, industry, and human survival. However, India's major rivers — **Ganga**, **Sangam**, and **Yamuna** — face critical pollution due to urbanization, industrial discharge, and sewage inflow. Traditional manual monitoring is slow and lacks predictive capabilities.
-
-This project aims to build an **AI-powered pollution monitoring system** that uses:
-- Sensor-based datasets
-- Machine Learning classification
-- Visual annotation of real images  
-...to assess and predict **water quality status** in a scalable, data-driven way.
+> 📌 Developed by **Chanchal Vishwakarma**  
+> 🎓 For academic and DRDO-aligned research initiatives  
+> 🔗 [Poster PDF](AI-powered_River_Pollution_Monitoring_Poster.png) | [Demo Link](https://github.com/Chanchal2411/AI-powered_River_Pollution_Monitoring)
 
 ---
 
-###  Tech Stack
+## 🎯 Project Objective
 
-| Layer              | Tools/Libraries                      |
-|-------------------|--------------------------------------|
-| Language           | Python 3.x                           |
-| ML/AI              | Scikit-learn (Random Forest Classifier) |
-| Data Handling      | Pandas, NumPy                        |
-| Visualization      | Matplotlib, Seaborn, Plotly          |
-| Image Annotation   | JSON (VIA/VGG Image Annotator format) |
-| Dev Environment    | Google Colab / Jupyter Notebook      |
-| Version Control    | Git, GitHub                          |
+To build an AI/ML solution that:
+- Classifies water quality using supervised models (Random Forest, SVM)
+- Utilizes datasets from rivers like Ganga, Yamuna, and Sangam
+- Visualizes pollution trends using Power BI
+- Aims to support strategic environmental surveillance and risk mitigation
 
 ---
 
-###  Data Sources
+## 📂 Dataset Information
 
-#### 🔹 Ganga & Sangam River Datasets
-- Format: CSV
-- Features:  
-  `DO`, `pH`, `ORP`, `Temp`, `Cond`, `WQI`, `Status`
-- Target: Water Quality Status (`Very Poor`, `Fair`, etc.)
-
-#### 🔹 Yamuna River Visual Dataset
-- Format: JSON (VGG Image Annotator)
-- Image regions manually marked as:
-  - `"polluted": "yes"`
-  - `"polluted": "no"`
+- **Sources**: Public datasets and manually prepared water quality data
+- **Formats**: CSV (Ganga, Sangam), JSON (Yamuna)
+- **Features Used**:
+  - Temperature, pH, DO, BOD, Nitrate, Conductivity, etc.
+  - Target variable: Pollution Category (Class A to E)
 
 ---
 
-###  Model Overview
+## 🧠 Machine Learning Models
 
-- **Model**: `RandomForestClassifier`
-- **Input Features**:
-  - Dissolved Oxygen (DO)
-  - pH Level
-  - Oxidation Reduction Potential (ORP)
-  - Conductivity (Cond)
-  - Temperature (Temp)
-  - Water Quality Index (WQI)
-- **Output**: Pollution status (`Very Poor`, `Fair`, etc.)
-- **Performance**: Evaluated via Accuracy, Confusion Matrix, Classification Report
+- **Algorithms Used**:
+  - Random Forest Classifier
+  - Support Vector Machine (SVM)
+- **Steps**:
+  - Data Cleaning and Preprocessing
+  - Label Encoding & Feature Engineering
+  - Model Training and Evaluation (Accuracy, Confusion Matrix)
+- **Results**:
+  - RF Accuracy: ~90%
+  - SVM Accuracy: ~87%
 
----
-
-###  Architecture Diagram
-
-```
-         ┌──────────────┐
-         │  CSV Inputs  │ <─ Ganga/Sangam data
-         └────┬─────────┘
-              │
-        ┌─────▼─────┐
-        │ Preprocess│
-        └────┬──────┘
-             ▼
-      ┌──────────────┐       ┌────────────────────┐
-      │Feature Matrix │       │ Annotated Images   │ <─ Yamuna JSON
-      └────┬──────────┘       └────────┬───────────┘
-           ▼                           ▼
-    ┌──────────────┐           ┌──────────────┐
-    │ ML Classifier│           │ Visual Labels│
-    └────┬─────────┘           └──────────────┘
-         ▼
- ┌───────────────┐
- │Predicted Status│
- └───────────────┘
-         ▼
- ┌────────────────────────────┐
- │ Dashboard / Export to CSV  │
- └────────────────────────────┘
-```
+> 📁 See `/notebooks/EDA_Modeling.ipynb` for full workflow
 
 ---
 
-###  Sample Results & Visuals
+## 📊 Power BI Dashboard
 
-|  Visualization                     |  Description                               |
-|------------------------------------|--------------------------------------------|
-| **DO vs WQI (Bubble Plot)**        | Bubble size = Temperature                  |
-| **pH vs Status (Boxplot)**         | Shows distribution of pH by quality level  |
-| **WQI vs Temperature (Scatter)**   | Identifies heat influence on pollution     |
-| **ORP vs Cond (2D Scatter)**       | Shows chemical balance vs conductivity     |
-| **Avg. WQI per River (Bar Chart)** | Compares overall pollution per river       |
+An interactive visualization to display:
+- Pollutant levels over time
+- Regional water quality trends
+- Pollution classification across rivers
 
----
-
-###  How to Run
-
-####  Option A: Google Colab (Recommended)
-1. Open `AI_River_Monitoring_Colab.ipynb`
-2. Upload:
-   - `ganga.csv`
-   - `sangam.csv`
-   - `annotations.json`
-3. Run all cells to:
-   - Train the model
-   - Predict water quality
-   - Visualize trends
-   - Export graphs + model
-
-####  Option B: Jupyter Notebook
-```bash
-git clone https://github.com/<your-username>/river-pollution-monitor.git
-cd river-pollution-monitor
-jupyter notebook
-```
+> ![Dashboard Preview](AI-powered_River_Pollution_Monitoring_Dashboard.pbix)
 
 ---
 
-###  Future Enhancements
+## ⚙️ Tech Stack
 
--  **Live Monitoring via Drones/Satellites**
-  - Integrate drone imagery or satellite data for real-time visual analysis
-
--  **IoT Sensor Integration**
-  - Stream sensor data directly from river stations into the model
-
--  **Image Classification (CNN)**
-  - Build deep learning models to detect polluted zones in Yamuna images automatically
-
--  **Cloud Dashboard**
-  - Deploy the system with Streamlit or Power BI for government dashboards
+| Area             | Tools Used                                |
+|------------------|-------------------------------------------|
+| Language         | Python 3 (pandas, scikit-learn)           |
+| Visualization    | Power BI                                  |
+| Data Processing  | Jupyter Notebooks, matplotlib             |
+| Future Scope     | Streamlit, Docker, IoT Sensor Integration |
 
 ---
 
-###  Conclusion
+## 🛰️ DRDO Relevance
 
-This AI-based river pollution monitoring system provides:
-- A **scalable model** trained on real-world environmental data
-- Integration of **image-based visual validation**
-- A foundation for **future smart water quality management systems**
+- **Supports Environmental Surveillance**
+- **Scalable to Sensor + Satellite Data Fusion**
+- **Useful in Defense Zones for Contamination Detection**
+- **Integrates with GIS or Real-Time Decision Systems**
 
 ---
 
-###  Repository Structure
+## 📄 Documentation
 
-```
-river-pollution-monitor/
-├── data/
-│   ├── ganga.csv
-│   ├── sangam.csv
-│   └── annotations.json
-├── models/
-│   └── rf_model.pkl
-├── notebooks/
-│   └── AI_River_Monitoring.ipynb
-├── visuals/
-│   └── plots/*.png
-├── README.md
-└── requirements.txt
-```
+- [📌 Project Poster (PDF)](AI-powered_River_Pollution_Monitoring_Poster.png)
+- [📊 Dashboard Screenshot](River_Monitoring_Dashboard_Report.pdf)
+- [📓 Colab Notebook](AI_powered_River_Pollution_Monitoring.ipynb)
+- [📁 Datasets](Dataset)
+
+---
+
+## 🔭 Future Work
+
+- Integrate real-time IoT sensor streams (MQTT, REST)
+- Build a live dashboard using Streamlit
+- Deploy the pipeline in Docker/Kubernetes
+- Extend classification to include anomaly detection
+
+---
+
+## 🤝 Contact
+
+For collaboration, queries, or enhancements:  
+📧 chanchalvishwakarma.cv@gmail.com  
+🔗 [LinkedIn](https://www.linkedin.com/in/chanchalvish-a01858269/)  
+🔗 [Portfolio](#) *(https://chanchal2411.github.io/html-css-js-portfolio/)*
+
+---
+
+> © 2025 Chanchal Vishwakarma | AI for Environment | All Rights Reserved.
