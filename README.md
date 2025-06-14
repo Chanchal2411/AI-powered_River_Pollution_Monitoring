@@ -41,7 +41,7 @@ To build an AI/ML solution that:
   - RF Accuracy: ~90%
   - SVM Accuracy: ~87%
 
-> 📁 See `/notebooks/EDA_Modeling.ipynb` for full workflow
+> 📁 See `AI_powered_River_Pollution_Monitoring.ipynb` for full workflow
 
 ---
 
@@ -99,7 +99,7 @@ An interactive visualization to display:
 For collaboration, queries, or enhancements:  
 📧 chanchalvishwakarma.cv@gmail.com  
 🔗 [LinkedIn](https://www.linkedin.com/in/chanchalvish-a01858269/)  
-🔗 [Portfolio](#) *(https://chanchal2411.github.io/html-css-js-portfolio/)*
+🔗 [Portfolio](https://chanchal2411.github.io/html-css-js-portfolio/)
 
 ---
 
